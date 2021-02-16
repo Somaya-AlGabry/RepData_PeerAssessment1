@@ -75,7 +75,10 @@ data3 <- data %>% filter(!is.na(steps)) %>%
 
 ggplot(data3, aes( x = interval, y = avg)) + 
   geom_line(col = "darkblue") + 
-  geom_vline(xintercept = 835, col = "red")
+  geom_vline(xintercept = 835, col = "red") +
+  ggtitle( "Average Daily Activity Pattern")+ 
+  xlab ( "5-minute-interval") +
+  ylab( "Daily Average")
 data3[which.max(data3$avg),]
 
 ```
@@ -142,7 +145,11 @@ data7 <- data6 %>%
 
 ggplot(data7, aes( x = interval, y = avg, color = daytype)) + 
   geom_line() + 
-  facet_grid(daytype~.)
+  facet_grid(daytype~.) +
+  ggtitle( "Average Daily Activity Pattern", subtitle = "difference between weekdays and weekend")+ 
+  xlab ( "5-minute-interval") +
+  ylab( "Daily Average")
 
 ```
-**From the plot, the activity in the early hours of the day is higher in the weekdays, but in the late hours it is slightely higher in the weekends.** 
+  
+  **From the plot, the activity in the early hours of the day is higher in the weekdays, but in the late hours it is slightely higher in the weekends.** 
